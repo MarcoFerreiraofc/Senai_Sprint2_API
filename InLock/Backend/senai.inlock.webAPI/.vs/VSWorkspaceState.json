@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\senai.inlock.webAPI",
+    "\\senai.inlock.webAPI\\Controllers",
+    "\\senai.inlock.webAPI\\Domains",
+    "\\senai.inlock.webAPI\\Interfaces",
+    "\\senai.inlock.webAPI\\Repositories"
+  ],
+  "SelectedNode": "\\senai.inlock.webAPI\\Repositories\\UsuarioRepository.cs",
+  "PreviewInSolutionExplorer": false
+}

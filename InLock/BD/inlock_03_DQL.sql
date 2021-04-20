@@ -1,54 +1,29 @@
+-- DQL
+
 USE inlock_games_tarde;
 GO
 
+SELECT * FROM usuarios;
 
---Listar todos os usuários
-SELECT * FROM Usuario;
-GO
+SELECT * FROM estudios;
 
-SELECT * FROM TipoUsuario;
-GO
+SELECT * FROM jogos;
 
+SELECT nomeJogo, descricao, dataLancamento, valor, nomeEstudio FROM jogos
+INNER JOIN estudios
+ON jogos.idEstudio = estudios.idEstudio;
 
---Listar todos os usuários
-SELECT * FROM Estudio;
-GO
+SELECT nomeEstudio, nomeJogo, descricao, dataLancamento, valor FROM estudios
+LEFT JOIN jogos
+ON estudios.idEstudio = jogos.idEstudio;
 
---Listar todos os jogos
-SELECT * FROM Jogo;
-GO
+SELECT email, senha, permissao FROM usuarios
+INNER JOIN tipoUsuarios
+ON usuarios.idTipoUsuario = tipoUsuarios.idTipoUsuario
+WHERE email = 'admin@admin.com' AND senha = 'admin';
 
+SELECT nomeJogo, descricao, dataLancamento, valor FROM jogos
+WHERE jogos.idJogo = 1;
 
---Listar todos os jogos e seus respectivos estúdios
-SELECT J.nomeJogo, J.descricao, J.dataLançamento, FORMAT (J.valor, 'c', 'pt-br') , E.nomeEstudio AS Estudio FROM Jogo AS J
-INNER JOIN Estudio AS E
-ON J.idEstudio = E.idEstudio
-;
-GO
-
---Buscar e trazer na lista todos os estúdios com os respectivos jogos
-SELECT E.idEstudio, E.nomeEstudio, J.nomeJogo FROM Estudio AS E
-LEFT JOIN Jogo AS J
-ON J.idEstudio = E.idEstudio
-WHERE E.idEstudio = 1
-;
-GO
-
---Buscar um usuário por e-mail e senha
-SELECT * FROM Usuario
-WHERE email = 'admin@admin.com' AND senha = 'admin'
-;
-GO
-
-
---Buscar um jogo por idJogo
-SELECT * FROM Jogo
-WHERE idJogo = 1
-;
-GO
-
---Buscar um estúdio por idEstudio
-SELECT * FROM Estudio
-WHERE idEstudio = 1
-;
-GO
+SELECT nomeEstudio FROM estudios
+WHERE estudios.idEstudio = 1;
